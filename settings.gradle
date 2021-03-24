@@ -1,0 +1,4 @@
+include ':base'
+include ':customview'
+include ':app'
+rootProject.name = "Demo"
