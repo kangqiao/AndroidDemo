@@ -5,38 +5,43 @@ import android.view.View
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.zp.androidx.customview.OnSeekBarChangeSimpleListener
-import kotlinx.android.synthetic.main.activity_circle_refresh_view.*
+import com.zp.androidx.demo.databinding.ActivityCircleRefreshViewBinding
+//import kotlinx.android.synthetic.main.activity_circle_refresh_view.*
 
 /**
  * Created by zhaopan on 3/24/21
  */
 class CircleRefreshViewActivity: AppCompatActivity() {
+    private lateinit var binding: ActivityCircleRefreshViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_circle_refresh_view)
-        seekBarDrag.max = 100
-        seekBarDrag.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
+        //setContentView(R.layout.activity_circle_refresh_view)
+        binding = ActivityCircleRefreshViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.seekBarDrag.max = 100
+        binding.seekBarDrag.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                circleRefreshView.drag(progress / 100f)
+                binding.circleRefreshView.drag(progress / 100f)
             }
         })
-        seekBarSeed.max = 100
-        seekBarSeed.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
+        binding.seekBarSeed.max = 100
+        binding.seekBarSeed.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                circleRefreshView.speed = (progress * 40).toLong()
+                binding.circleRefreshView.speed = (progress * 40).toLong()
             }
         })
-        seekBarSeed.progress = (circleRefreshView.speed / 40).toInt()
+        binding.seekBarSeed.progress = (binding.circleRefreshView.speed / 40).toInt()
     }
 
     fun onClick(view: View) {
         when (view.id) {
             R.id.btnStart -> {
-                circleRefreshView.startAnimator()
+                binding.circleRefreshView.startAnimator()
             }
             R.id.btnStop -> {
-                circleRefreshView.stopAnimator()
+                binding.circleRefreshView.stopAnimator()
             }
         }
     }

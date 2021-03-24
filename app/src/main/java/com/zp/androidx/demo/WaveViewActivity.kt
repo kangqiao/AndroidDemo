@@ -5,48 +5,53 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.zp.androidx.base.Utils
 import com.zp.androidx.customview.OnSeekBarChangeSimpleListener
-import kotlinx.android.synthetic.main.activity_wave_view.*
+import com.zp.androidx.demo.databinding.ActivityWaveViewBinding
+
+//import kotlinx.android.synthetic.main.activity_wave_view.*
 
 /**
  * Created by zhaopan on 3/23/21
  */
 class WaveViewActivity: AppCompatActivity() {
+    private lateinit var binding: ActivityWaveViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wave_view)
+        //setContentView(R.layout.activity_wave_view)
+        binding = ActivityWaveViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        seekBarWidth.max = 100
-        seekBarWidth.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
+        binding.seekBarWidth.max = 100
+        binding.seekBarWidth.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress / 100.0f
-                waveView.waveWidthScale = scale
+                binding.waveView.waveWidthScale = scale
             }
         })
-        seekBarWidth.progress = 100
+        binding.seekBarWidth.progress = 100
 
-        seekBarHeight.max = 100
-        seekBarHeight.setOnSeekBarChangeListener(object: OnSeekBarChangeSimpleListener() {
+        binding.seekBarHeight.max = 100
+        binding.seekBarHeight.setOnSeekBarChangeListener(object: OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress / 100.0f * 0.1f
-                waveView.waveHeightScale = scale
+                binding.waveView.waveHeightScale = scale
             }
         })
-        seekBarHeight.progress = 35
+        binding.seekBarHeight.progress = 35
 
-        seekBarSpeed.max = 4000
-        seekBarSpeed.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
+        binding.seekBarSpeed.max = 4000
+        binding.seekBarSpeed.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val speed = (progress + 300).toLong()
-                waveView.speed = speed
+                binding.waveView.speed = speed
             }
         })
-        seekBarSpeed.progress = 500
+        binding.seekBarSpeed.progress = 500
 
-        seekBarColor.max = 100
-        seekBarColor.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
+        binding.seekBarColor.max = 100
+        binding.seekBarColor.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val color = Utils.getRandomColorInt()
-                waveView.bgColor = color
+                binding.waveView.bgColor = color
             }
         })
     }

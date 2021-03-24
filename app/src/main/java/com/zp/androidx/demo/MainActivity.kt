@@ -9,41 +9,44 @@ import android.os.Bundle
 import android.provider.Settings
 import com.zp.androidx.base.showToast
 import com.zp.androidx.base.startActivity
+import com.zp.androidx.demo.databinding.ActivityMainBinding
 import com.zp.androidx.demo.floatball.FloatBallViewManager
 import com.zp.androidx.demo.floatball.FloatBallViewService
-import kotlinx.android.synthetic.main.activity_main.*
+//import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvOpenWaveview.setOnClickListener {
+        binding.tvOpenWaveview.setOnClickListener {
             startActivity(WaveViewActivity::class.java)
         }
 
-        val animator: ObjectAnimator = ObjectAnimator.ofFloat(tvOpenWaveview, "rotation", 0f, 180f, 0f)
+        val animator: ObjectAnimator = ObjectAnimator.ofFloat(binding.tvOpenWaveview, "rotation", 0f, 180f, 0f)
         animator.duration = 2000
         animator.repeatCount = 5
         animator.start()
 
-        btnOpenWaveLoadingView.setOnClickListener {
+        binding.btnOpenWaveLoadingView.setOnClickListener {
             CustomViewActivity.navTo(this, R.layout.activity_wave_loading_view)
         }
 
-        btnOpenPointBeatView.setOnClickListener {
+        binding.btnOpenPointBeatView.setOnClickListener {
             CustomViewActivity.navTo(this, R.layout.activity_point_beat_view)
         }
 
-        btnOpenCircleRefreshView.setOnClickListener {
+        binding.btnOpenCircleRefreshView.setOnClickListener {
             startActivity(CircleRefreshViewActivity::class.java)
         }
 
-        btnOpenTaiJiView.setOnClickListener {
+        binding.btnOpenTaiJiView.setOnClickListener {
             CustomViewActivity.navTo(this, R.layout.activity_tai_ji_view)
         }
 
-        btnStartFloatBallView.setOnClickListener {
+        binding.btnStartFloatBallView.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
                 showToast("请先授予悬浮窗权限")
                 val intent =
