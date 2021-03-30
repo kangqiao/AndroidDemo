@@ -2,8 +2,12 @@ package com.zp.androidx.demo
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.zp.androidx.base.RouterPath
+//import com.zp.androidx.bindview_annotation.BindView
 import com.zp.androidx.customview.OnSeekBarChangeSimpleListener
 import com.zp.androidx.demo.databinding.ActivityCircleRefreshViewBinding
 //import kotlinx.android.synthetic.main.activity_circle_refresh_view.*
@@ -11,8 +15,13 @@ import com.zp.androidx.demo.databinding.ActivityCircleRefreshViewBinding
 /**
  * Created by zhaopan on 3/24/21
  */
+@Route(path = RouterPath.App.CIRCLE_REFRESH)
 class CircleRefreshViewActivity: AppCompatActivity() {
     private lateinit var binding: ActivityCircleRefreshViewBinding
+
+//    @BindView(R.id.btnStart)
+//    @JvmField
+//    var btnStart: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

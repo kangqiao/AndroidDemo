@@ -1,3 +1,5 @@
+include ':bindview_annotation'
+include ':bindview_processor'
 include ':base'
 include ':customview'
 include ':app'

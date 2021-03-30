@@ -7,6 +7,14 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnOpenImageLoad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="图片实验场" />
+
+
     <TextView
         android:id="@+id/tvOpenWaveview"
         android:layout_width="match_parent"

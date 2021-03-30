@@ -9,10 +9,12 @@ if (FunctionExt.isAppModule()) {
     //apply plugin: 'kotlin-android-extensions'
     apply plugin: 'kotlin-parcelize'
     apply plugin: 'kotlin-kapt'
+    doARouter()
     doAndroid()
-    doAndroidDependencies(dependencies_android)
+    doAndroidDependencies(dependencies_all)
 } else if (projectName == "easyeventbus_api" || projectName == "easyeventbus_processor"
-        || projectName == "easyrouter_processor" || projectName == "easyrouter_annotation") {
+        || projectName == "easyrouter_processor" || projectName == "easyrouter_annotation"
+        || projectName == "bindview_processor" || projectName == "bindview_annotation") {
     apply plugin: 'java-library'
     apply plugin: 'kotlin'
     java {
@@ -25,8 +27,18 @@ if (FunctionExt.isAppModule()) {
     //apply plugin: 'kotlin-android-extensions'
     apply plugin: 'kotlin-parcelize'
     apply plugin: 'kotlin-kapt'
+    doARouter()
     doAndroid()
-    doAndroidDependencies(dependencies_android)
+    doAndroidDependencies(dependencies_all)
+}
+
+def doARouter() {
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.name)
+            arg("AROUTER_GENERATE_DOC", "enable")
+        }
+    }
 }
 
 def doAndroid() {
@@ -59,7 +71,7 @@ def doAndroid() {
             dataBinding false
 
             // Disable unused AGP features
-            buildConfig false
+            //buildConfig false
             aidl false
             renderScript false
             resValues false

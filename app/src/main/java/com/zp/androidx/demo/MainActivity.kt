@@ -7,22 +7,30 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.zp.androidx.base.RouterPath
 import com.zp.androidx.base.showToast
 import com.zp.androidx.base.startActivity
 import com.zp.androidx.demo.databinding.ActivityMainBinding
 import com.zp.androidx.demo.floatball.FloatBallViewManager
 import com.zp.androidx.demo.floatball.FloatBallViewService
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+
 //import kotlinx.android.synthetic.main.activity_main.*
 
+@Route(path = RouterPath.App.MAIN)
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
+        EventBus.getDefault().register(this)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.tvOpenWaveview.setOnClickListener {
-            startActivity(WaveViewActivity::class.java)
+            //startActivity(WaveViewActivity::class.java)
+            startActivity(RouterPath.App.WAVE)
         }
 
         val animator: ObjectAnimator = ObjectAnimator.ofFloat(binding.tvOpenWaveview, "rotation", 0f, 180f, 0f)
@@ -35,11 +43,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnOpenPointBeatView.setOnClickListener {
-            CustomViewActivity.navTo(this, R.layout.activity_point_beat_view)
+            //CustomViewActivity.navTo(this, R.layout.activity_point_beat_view)
+            startActivity(RouterPath.App.CUSTOM, Bundle().apply {
+                putInt(RouterPath.App.Param.KEY_LAYOUT_ID, R.layout.activity_point_beat_view)
+            })
         }
 
         binding.btnOpenCircleRefreshView.setOnClickListener {
-            startActivity(CircleRefreshViewActivity::class.java)
+            //startActivity(CircleRefreshViewActivity::class.java)
+            startActivity(RouterPath.App.CIRCLE_REFRESH)
         }
 
         binding.btnOpenTaiJiView.setOnClickListener {
@@ -60,6 +72,16 @@ class MainActivity : AppCompatActivity() {
                 FloatBallViewManager.showFloatBall()
             }
         }
+
+        binding.btnOpenImageLoad.setOnClickListener {
+            startActivity(RouterPath.App.IMAGE_LOAD)
+        }
     }
+
+    @Subscribe
+    fun onEvent(o: Any) {
+
+    }
+
 
 }

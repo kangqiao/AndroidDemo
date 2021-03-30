@@ -3,6 +3,7 @@
     package="com.zp.androidx.demo">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".DemoApp"
         android:allowBackup="true"
@@ -21,6 +22,7 @@
         <activity android:name=".WaveViewActivity" />
         <activity android:name=".CustomViewActivity" />
         <activity android:name=".CircleRefreshViewActivity" />
+        <activity android:name=".ImageLoadActivity" />
 
         <service
             android:name=".floatball.FloatBallViewService"

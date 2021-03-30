@@ -2,4 +2,6 @@
 dependencies {
 
     implementation project(path: ':customview')
+//    implementation project(':bindview_annotation')
+//    kapt project(path: ':bindview_processor')
 }

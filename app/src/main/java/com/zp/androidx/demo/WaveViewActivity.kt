@@ -3,6 +3,8 @@ package com.zp.androidx.demo
 import android.os.Bundle
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.zp.androidx.base.RouterPath
 import com.zp.androidx.base.Utils
 import com.zp.androidx.customview.OnSeekBarChangeSimpleListener
 import com.zp.androidx.demo.databinding.ActivityWaveViewBinding
@@ -12,6 +14,7 @@ import com.zp.androidx.demo.databinding.ActivityWaveViewBinding
 /**
  * Created by zhaopan on 3/23/21
  */
+@Route(path = RouterPath.App.WAVE)
 class WaveViewActivity: AppCompatActivity() {
     private lateinit var binding: ActivityWaveViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {

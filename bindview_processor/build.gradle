@@ -1,0 +1,6 @@
+
+dependencies {
+    implementation dependencies_all['auto-service']
+    implementation dependencies_all['javapoet']
+    implementation project(':bindview_annotation')
+}
