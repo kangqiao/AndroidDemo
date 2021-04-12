@@ -61,4 +61,26 @@
         android:gravity="center"
         android:text="Float Ball" />
 
+    <Button
+        android:id="@+id/btnOpenAidlTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="打开AIDL测试页面" />
+
+
+    <Button
+        android:id="@+id/btn_anim_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Anim 动画效果测试" />
+
+    <Button
+        android:id="@+id/btn_content_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ContentProvider Test" />
+
 </LinearLayout>

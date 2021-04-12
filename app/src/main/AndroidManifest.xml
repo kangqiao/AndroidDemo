@@ -23,11 +23,22 @@
         <activity android:name=".CustomViewActivity" />
         <activity android:name=".CircleRefreshViewActivity" />
         <activity android:name=".ImageLoadActivity" />
+        <activity android:name=".AnimTestActivity" />
 
         <service
             android:name=".floatball.FloatBallViewService"
             android:enabled="true"
             android:exported="false" />
+
+        <activity android:name=".aidl.AIDLActivity" />
+        <service android:name=".aidl.RemoteService"
+            android:process=":remote"/>
+
+        <provider
+            android:authorities="com.zp.androidx.demo.customContentProvider"
+            android:name=".contentprovider.CustomContentProvider"
+            android:exported="true"/>
+        <activity android:name=".contentprovider.ContentProviderActivity" />
     </application>
 
 </manifest>

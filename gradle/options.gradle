@@ -47,7 +47,7 @@ def doAndroid() {
         buildToolsVersion "29.0.3"
         defaultConfig {
             if (FunctionExt.isAppModule()) {
-                applicationId "github.leavesc.demo"
+                applicationId "com.zp.androidx.demo"
             }
             minSdkVersion 21
             targetSdkVersion 30
@@ -72,7 +72,7 @@ def doAndroid() {
 
             // Disable unused AGP features
             //buildConfig false
-            aidl false
+            aidl true
             renderScript false
             resValues false
             shaders false

@@ -11,6 +11,8 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.zp.androidx.base.RouterPath
 import com.zp.androidx.base.showToast
 import com.zp.androidx.base.startActivity
+import com.zp.androidx.demo.aidl.AIDLActivity
+import com.zp.androidx.demo.contentprovider.ContentProviderActivity
 import com.zp.androidx.demo.databinding.ActivityMainBinding
 import com.zp.androidx.demo.floatball.FloatBallViewManager
 import com.zp.androidx.demo.floatball.FloatBallViewService
@@ -75,6 +77,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnOpenImageLoad.setOnClickListener {
             startActivity(RouterPath.App.IMAGE_LOAD)
+        }
+        binding.btnOpenAidlTest.setOnClickListener {
+            startActivity(AIDLActivity::class.java)
+        }
+        binding.btnAnimTest.setOnClickListener {
+            startActivity(AnimTestActivity::class.java)
+        }
+        binding.btnContentProvider.setOnClickListener {
+            startActivity(ContentProviderActivity::class.java)
         }
     }
 
