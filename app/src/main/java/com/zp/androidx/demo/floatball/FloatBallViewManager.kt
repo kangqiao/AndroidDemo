@@ -8,7 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import com.zp.androidx.base.Utils
+import com.zp.androidx.base.CtxUtils
 import com.zp.androidx.customview.FloatBallView
 
 /**
@@ -17,7 +17,7 @@ import com.zp.androidx.customview.FloatBallView
 object FloatBallViewManager {
 
     private val context: Context
-        get() = Utils.context
+        get() = CtxUtils.context
 
     private val windowManager by lazy {
         context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
@@ -73,10 +73,10 @@ object FloatBallViewManager {
                         downY = event.rawY
                     }
                     MotionEvent.ACTION_UP -> {
-                        val endX = if (event.rawX < Utils.screenWidth / 2f) {
+                        val endX = if (event.rawX < CtxUtils.screenWidth / 2f) {
                             0f
                         } else {
-                            (Utils.screenWidth - FloatBallView.VIEW_WIDTH).toFloat()
+                            (CtxUtils.screenWidth - FloatBallView.VIEW_WIDTH).toFloat()
                         }
                         floatBallWindowParams.x = endX.toInt()
                         floatBallView.setDragState(false)
@@ -88,7 +88,7 @@ object FloatBallViewManager {
         }
         floatBallView.setOnTouchListener(touchListener)
         floatBallView.setOnClickListener {
-            Toast.makeText(Utils.context, "ZHAOPAN", Toast.LENGTH_SHORT).show()
+            Toast.makeText(CtxUtils.context, "ZHAOPAN", Toast.LENGTH_SHORT).show()
         }
     }
 

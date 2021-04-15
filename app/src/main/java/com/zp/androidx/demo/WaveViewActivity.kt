@@ -5,7 +5,7 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.zp.androidx.base.RouterPath
-import com.zp.androidx.base.Utils
+import com.zp.androidx.base.CtxUtils
 import com.zp.androidx.customview.OnSeekBarChangeSimpleListener
 import com.zp.androidx.demo.databinding.ActivityWaveViewBinding
 
@@ -53,7 +53,7 @@ class WaveViewActivity: AppCompatActivity() {
         binding.seekBarColor.max = 100
         binding.seekBarColor.setOnSeekBarChangeListener(object : OnSeekBarChangeSimpleListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val color = Utils.getRandomColorInt()
+                val color = CtxUtils.getRandomColorInt()
                 binding.waveView.bgColor = color
             }
         })

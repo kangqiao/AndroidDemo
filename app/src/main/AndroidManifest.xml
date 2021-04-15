@@ -24,6 +24,7 @@
         <activity android:name=".CircleRefreshViewActivity" />
         <activity android:name=".ImageLoadActivity" />
         <activity android:name=".AnimTestActivity" />
+        <activity android:name=".handler.HandlerSyncBarrierActivity" />
 
         <service
             android:name=".floatball.FloatBallViewService"

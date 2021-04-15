@@ -83,4 +83,11 @@
         android:gravity="center"
         android:text="ContentProvider Test" />
 
+    <Button
+        android:id="@+id/btn_handler_barrier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Handler同步屏障+异步消息Test" />
+
 </LinearLayout>

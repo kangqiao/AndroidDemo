@@ -9,7 +9,14 @@
         android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="启动远端服务"/>
+        android:text="绑定远端服务"/>
+
+
+    <Button
+        android:id="@+id/btn_unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解除绑定远端服务"/>
 
     <EditText
         android:id="@+id/codeEt"
@@ -36,6 +43,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="查询"/>
+
+    <Button
+        android:id="@+id/btn_messenger_bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="交换远端Messenger"/>
+
+
+    <Button
+        android:id="@+id/btn_messenger_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="向远端Messenger发送消息"/>
+
+    <Button
+        android:id="@+id/btn_messenger_unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除绑定远端Messenger"/>
 
     <TextView
         android:id="@+id/studentListText"

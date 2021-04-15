@@ -1,6 +1,8 @@
 
 dependencies {
-
+    implementation 'androidx.asynclayoutinflater:asynclayoutinflater:1.0.0'
+    implementation 'com.swift.sandhook:hooklib:3.4.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14+'
     implementation project(path: ':customview')
 //    implementation project(':bindview_annotation')
 //    kapt project(path: ':bindview_processor')
