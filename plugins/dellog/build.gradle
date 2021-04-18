@@ -1,0 +1,26 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation 'com.android.tools.build:gradle:4.1.3'
+    implementation 'org.javassist:javassist:'
+}
+
+//设置maven deployer
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //设置插件的GAV参数
+            pom.groupId = 'com.zp.plugin'
+            pom.artifactId = 'dellog'
+            pom.version = '1.0.0'
+            //文件发布到下面目录
+            repository(url: uri('../../repo'))
+        }
+    }
+}

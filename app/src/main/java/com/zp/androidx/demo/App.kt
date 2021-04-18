@@ -3,6 +3,7 @@ package com.zp.androidx.demo
 import android.app.Application
 import android.content.Context
 import android.os.Build
+import android.os.Debug
 import android.util.Log
 import android.view.Choreographer
 import androidx.annotation.RequiresApi
@@ -19,6 +20,7 @@ class DemoApp: Application() {
         lateinit var context: Application
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         context = this
@@ -36,5 +38,10 @@ class DemoApp: Application() {
         super.onCreate()
         Log.e(TAG, "zp::: onCreate process:2${getProcessName()}")
         Choreographer.getInstance().postFrameCallback(FPSFrameCallback(System.nanoTime()));
+        //Debug.dumpHprofData("a")
+        //registerActivityLifecycleCallbacks()
+        System.gc()
+        System.runFinalization()
+        Runtime.getRuntime().gc()
     }
 }

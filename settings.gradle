@@ -4,3 +4,16 @@ include ':base'
 include ':customview'
 include ':app'
 rootProject.name = "Demo"
+
+//include ':plugins:dellog'
+
+//include_project ':dellog', 'plugins/dellog'
+//
+//def include_project(String name, String path) {
+//    def project_dir = new File(settingsDir, path)
+//    if (!project_dir.exists()) {
+//        throw new IllegalArgumentException("project name " + name + ", project path: " + path + " not exit")
+//    }
+//    include(name)
+//    project(name).projectDir = project_dir
+//}

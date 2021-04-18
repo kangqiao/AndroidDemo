@@ -1,10 +1,13 @@
 package com.zp.androidx.demo
 
+import android.content.res.AssetManager
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.zp.androidx.base.CtxUtils
 import com.zp.androidx.base.RouterPath
 import com.zp.androidx.demo.databinding.ActivityImageLoadBinding
 
@@ -30,5 +33,14 @@ class ImageLoadActivity: AppCompatActivity() {
             error(android.R.drawable.stat_notify_error)
             transformations (CircleCropTransformation())
         }
+
+        //val inputStream = assets.open("img23.jpg")
+
+        binding.imageView2.setImageBitmap(CtxUtils.decodeSampledBitmapFromResource(resources, R.raw.img23, 400, 200))
+    }
+
+    override fun onResume() {
+        super.onResume()
+
     }
 }
